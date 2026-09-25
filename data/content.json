@@ -1,6 +1,6 @@
 {
   "name": "Md. Kowshik Alam",
-  "title": "Senior Executive, Finance & Accounts",
+  "title": "Section Head, Financial Budget and Reporting",
   "subtitle": "CA Apprentice · MBA (Finance & Accounts), BRAC University · BBA (Finance & Banking), IUBAT",
   "location": "Dhaka, Bangladesh",
   "phone": "01680748040",
@@ -86,8 +86,21 @@
   "experience": [
     {
       "company": "Bangladesh Honda Private Limited",
+      "role": "Section Head — Financial Budget & Reporting",
+      "period": "From April 1, 2026 – Present",
+      "location": "Dhaka, Bangladesh",
+      "bullets": [
+        "Lead financial budgeting, corporate forecasting, and strategic planning operations.",
+        "Oversee comprehensive financial reporting, statutory statements, and financial policy upgrades.",
+        "Direct organizational lease liability management and Right-of-Use (ROU / IFRS 16) assets.",
+        "Drive SAP ERP financial governance, variance analysis, and management decision support.",
+        "Supervise fixed asset management, internal controls, and statutory audit readiness."
+      ]
+    },
+    {
+      "company": "Bangladesh Honda Private Limited",
       "role": "Senior Executive",
-      "period": "April 2025 – Present",
+      "period": "April 2025 – March 2026",
       "location": "Dhaka, Bangladesh",
       "bullets": [
         "Ensure timely data entry of day-to-day business transactions in SAP.",

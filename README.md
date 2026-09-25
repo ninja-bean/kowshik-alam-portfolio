@@ -1,6 +1,6 @@
 # Md. Kowshik Alam — Finance & Accounts Portfolio
 
-A single, polished, production-ready corporate portfolio website for **Md. Kowshik Alam**, Senior Executive (Finance & Accounts) at Bangladesh Honda Private Limited, CA-CC (ICAB / ACNABIN / Baker Tilly International), and MBA (BRAC University).
+A single, polished, production-ready corporate portfolio website for **Md. Kowshik Alam**, Section Head (Financial Budget and Reporting) at Bangladesh Honda Private Limited, CA-CC (ICAB / ACNABIN / Baker Tilly International), and MBA (BRAC University).
 
 ---
 

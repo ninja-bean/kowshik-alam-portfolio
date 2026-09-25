@@ -156,7 +156,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-nav);
+  z-index: 1000;
   padding: 14px 0;
   padding-top: calc(14px + env(safe-area-inset-top));
   transition: padding var(--duration-normal) var(--ease),
@@ -544,8 +544,33 @@
    8. Dedicated Mobile Navigation Drawer (<880px)
    --------------------------------------------------------------------- */
 @media (max-width: 880px) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    padding-top: calc(10px + env(safe-area-inset-top));
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  [data-theme="light"] .site-header {
+    background: rgba(247, 246, 242, 0.95);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
   .nav-container {
-    padding: 6px 16px;
+    padding: 0 16px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .nav-actions {
@@ -652,3 +677,31 @@
     color: var(--accent);
   }
 }
+
+/* Mobile Horizontally Swipeable Filter Chips (<768px) */
+@media (max-width: 768px) {
+  .filter-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: var(--radius-full);
+    gap: 6px;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab {
+    flex-shrink: 0;
+    min-height: 36px;
+    padding: 6px 14px;
+    font-size: var(--text-xs);
+  }
+}
+
