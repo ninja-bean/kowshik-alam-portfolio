@@ -1,0 +1,116 @@
+/* =====================================================================
+   VARIABLES.CSS — Design Tokens & System Variables
+   Md. Kowshik Alam | Finance & Accounts Portfolio
+   ===================================================================== */
+
+:root {
+  /* Dark Theme (Default) */
+  --bg: #0A0A0A;
+  --bg-alt: #121212;
+  --surface: #181818;
+  --surface-raised: #202020;
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #C8C8C8;
+  --text-muted: #808080;
+  --text-subtle: #4D4D4D;
+  
+  --border: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  
+  /* Glassmorphism Tokens */
+  --glass-fill: rgba(255, 255, 255, 0.045);
+  --glass-fill-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-hover: rgba(255, 255, 255, 0.35);
+  --glass-blur: 20px;
+  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --glass-shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.7);
+
+  /* Accent & Interactive Glow (Strict Monochrome — Option A) */
+  --accent: #FFFFFF;
+  --accent-contrast: #0A0A0A;
+  --accent-soft: rgba(255, 255, 255, 0.12);
+  --accent-glow: rgba(255, 255, 255, 0.18);
+  
+  /* Typography */
+  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-signature: "Dancing Script", cursive;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  /* Type Scale (Fluid clamp) */
+  --text-xs: clamp(0.72rem, 0.68rem + 0.25vw, 0.82rem);
+  --text-sm: clamp(0.82rem, 0.78rem + 0.3vw, 0.92rem);
+  --text-base: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+  --text-lg: clamp(1.1rem, 1.02rem + 0.5vw, 1.28rem);
+  --text-xl: clamp(1.3rem, 1.18rem + 0.8vw, 1.6rem);
+  --text-2xl: clamp(1.65rem, 1.45rem + 1.2vw, 2.1rem);
+  --text-3xl: clamp(2.1rem, 1.8rem + 1.8vw, 3.0rem);
+  --text-hero: clamp(2.6rem, 2.1rem + 2.8vw, 4.2rem);
+
+  /* Spacing */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 72px;
+  --space-3xl: 100px;
+  --space-4xl: 140px;
+
+  /* Borders & Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-full: 9999px;
+
+  /* Animation & Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+
+  /* Layout */
+  --container-max: 1200px;
+  --nav-height: 76px;
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}
+
+/* Light Theme (Warm, Layered Off-White with Refined Gold Touches) */
+[data-theme="light"] {
+  --bg: #F7F6F2;
+  --bg-alt: #EFECE6;
+  --surface: #FFFFFF;
+  --surface-raised: #FAF8F5;
+
+  --text-primary: #121212;
+  --text-secondary: #3D3D3D;
+  --text-muted: #707070;
+  --text-subtle: #999999;
+
+  --border: rgba(30, 25, 20, 0.12);
+  --border-subtle: rgba(30, 25, 20, 0.06);
+  --border-strong: rgba(30, 25, 20, 0.25);
+
+  --glass-fill: rgba(255, 255, 255, 0.78);
+  --glass-fill-hover: rgba(255, 255, 255, 0.94);
+  --glass-border: rgba(30, 25, 20, 0.14);
+  --glass-border-hover: rgba(30, 25, 20, 0.32);
+  --glass-blur: 20px;
+  --glass-shadow: 0 14px 40px rgba(45, 35, 20, 0.08);
+  --glass-shadow-hover: 0 20px 48px rgba(45, 35, 20, 0.14);
+
+  /* Accent & Interactive Glow (Strict Monochrome — Option A) */
+  --accent: #111111;
+  --accent-contrast: #FFFFFF;
+  --accent-soft: rgba(0, 0, 0, 0.08);
+  --accent-glow: rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,654 @@
+/* =====================================================================
+   COMPONENTS.CSS — Glass Cards, Buttons, Nav, Badges, Tabs & Form Elements
+   Md. Kowshik Alam | Finance & Accounts Portfolio
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Glassmorphism System
+   --------------------------------------------------------------------- */
+.glass {
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-interactive {
+  transition: transform var(--duration-normal) var(--ease),
+              border-color var(--duration-normal) var(--ease),
+              box-shadow var(--duration-normal) var(--ease),
+              background var(--duration-normal) var(--ease);
+  will-change: transform;
+}
+
+.glass-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
+  background: var(--glass-fill-hover);
+}
+
+.glass-interactive:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Mouse-follow spotlight glow on interactive glass */
+.glass-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--accent-glow),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease);
+  z-index: 1;
+}
+
+.glass-glow:hover::after {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------------
+   2. Buttons & Touch Targets (Min 44px height)
+   --------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: transform var(--duration-fast) var(--ease),
+              background var(--duration-fast) var(--ease),
+              color var(--duration-fast) var(--ease),
+              border-color var(--duration-fast) var(--ease),
+              box-shadow var(--duration-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg);
+  border: 1px solid var(--text-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  opacity: 0.92;
+}
+
+/* Secondary Button (Glass Outline) */
+.btn-secondary {
+  background: var(--glass-fill);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--glass-fill-hover);
+}
+
+/* Icon Link Button (44x44px touch target) */
+.btn-icon-link {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-fill);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  transition: all var(--duration-fast) var(--ease);
+}
+
+.btn-icon-link:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  transform: translateY(-2px);
+}
+
+.btn-icon-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------------------------------------------------------------------
+   3. Navigation Header & Signature Branding
+   --------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  padding: 14px 0;
+  padding-top: calc(14px + env(safe-area-inset-top));
+  transition: padding var(--duration-normal) var(--ease),
+              background var(--duration-normal) var(--ease),
+              border-color var(--duration-normal) var(--ease);
+}
+
+.site-header.scrolled {
+  padding-top: calc(8px + env(safe-area-inset-top));
+  padding-bottom: 8px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: border-color var(--duration-normal) var(--ease),
+              box-shadow var(--duration-normal) var(--ease);
+}
+
+/* Signature Handwritten Wordmark */
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-signature {
+  font-family: var(--font-signature);
+  font-size: clamp(1.9rem, 1.7rem + 0.6vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  display: inline-block;
+  letter-spacing: 0.02em;
+  transform: rotate(-1.5deg);
+  transition: color var(--duration-fast) var(--ease),
+              transform var(--duration-fast) var(--ease);
+}
+
+.brand-link:hover .brand-signature {
+  color: var(--accent);
+  transform: rotate(0deg);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 8px 0;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--duration-normal) var(--ease);
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme Toggle Button (44x44px touch area) */
+.theme-toggle-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-fill);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  transition: all var(--duration-fast) var(--ease);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--glass-fill-hover);
+  transform: rotate(15deg);
+}
+
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile Hamburger Toggle (44x44px touch area) */
+.mobile-nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--glass-fill);
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------------------------------------------------------------------
+   4. Credential Badges & Cards
+   --------------------------------------------------------------------- */
+.credential-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.credential-card {
+  padding: 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all var(--duration-normal) var(--ease);
+}
+
+.credential-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  background: var(--glass-fill-hover);
+}
+
+.credential-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.credential-label {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.credential-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.credential-detail {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------------
+   5. Segmented Filter Tabs
+   --------------------------------------------------------------------- */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-xl);
+  padding: 6px;
+  border-radius: var(--radius-full);
+  background: var(--glass-fill);
+  border: 1px solid var(--border-subtle);
+  width: fit-content;
+}
+
+.filter-tab {
+  min-height: 40px;
+  padding: 8px 18px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  transition: all var(--duration-fast) var(--ease);
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.filter-tab:hover {
+  color: var(--text-primary);
+}
+
+.filter-tab.active {
+  background: var(--text-primary);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+[data-theme="light"] .filter-tab.active {
+  background: var(--text-primary);
+  color: #FFFFFF;
+}
+
+/* ---------------------------------------------------------------------
+   6. Skills Tag Clusters
+   --------------------------------------------------------------------- */
+.skill-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: var(--glass-fill);
+  border: 1px solid var(--border);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease);
+}
+
+.skill-pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background var(--duration-fast) var(--ease);
+}
+
+.skill-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  background: var(--glass-fill-hover);
+}
+
+.skill-pill:hover::before {
+  background: var(--accent);
+}
+
+.skill-pill.featured {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------------
+   7. Form Inputs & Contact UI
+   --------------------------------------------------------------------- */
+.form-group {
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 16px !important;
+  font-family: var(--font-body);
+  transition: border-color var(--duration-fast) var(--ease),
+              background var(--duration-fast) var(--ease),
+              box-shadow var(--duration-fast) var(--ease);
+}
+
+[data-theme="light"] .form-input,
+[data-theme="light"] .form-textarea {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--glass-fill-hover);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Toast Message */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: var(--z-toast);
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: var(--text-primary);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform var(--duration-normal) var(--ease),
+              opacity var(--duration-normal) var(--ease);
+  pointer-events: none;
+}
+
+.toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hide mobile drawer header on desktop by default */
+.mobile-menu-header {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------
+   8. Dedicated Mobile Navigation Drawer (<880px)
+   --------------------------------------------------------------------- */
+@media (max-width: 880px) {
+  .nav-container {
+    padding: 6px 16px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  /* Move Download CV button inside mobile drawer to keep header clean */
+  .nav-actions .btn-secondary {
+    display: none;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: calc(24px + env(safe-area-inset-top)) 28px calc(32px + env(safe-area-inset-bottom));
+    background: rgba(10, 10, 10, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    gap: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity var(--duration-normal) var(--ease),
+                transform var(--duration-normal) var(--ease);
+    z-index: calc(var(--z-nav) + 10);
+    overflow-y: auto;
+  }
+
+  [data-theme="light"] .nav-menu {
+    background: rgba(247, 246, 242, 0.96);
+  }
+
+  .nav-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Mobile Drawer Header with Close (X) Button */
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+  }
+
+  .mobile-menu-close-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-fill);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+
+  .mobile-menu-close-btn:hover,
+  .mobile-menu-close-btn:active {
+    background: var(--text-primary);
+    color: var(--bg);
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+    font-weight: 500;
+    padding: 12px 14px;
+    min-height: 48px;
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+  }
+
+  .nav-link:active {
+    background: var(--glass-fill-hover);
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu-cv-link {
+    display: flex !important;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 16px;
+    justify-content: center;
+    font-size: 1rem;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
