@@ -255,14 +255,28 @@
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const textToCopy = btn.getAttribute('data-copy');
+      const originalText = btn.textContent;
+
+      const markCopied = () => {
+        showToast(`Copied to clipboard: ${textToCopy}`);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      };
+
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(textToCopy).then(() => {
-          showToast(`Copied to clipboard: ${textToCopy}`);
+          markCopied();
         }).catch(() => {
           fallbackCopy(textToCopy);
+          markCopied();
         });
       } else {
         fallbackCopy(textToCopy);
+        markCopied();
       }
     });
   });
@@ -274,7 +288,6 @@
     input.select();
     document.execCommand('copy');
     document.body.removeChild(input);
-    showToast(`Copied: ${text}`);
   };
 
   /* ---------------------------------------------------------------------
